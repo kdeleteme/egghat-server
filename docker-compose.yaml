@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: egghat_server_dev
+  web:
+    build: .
+    command: mix phx.server
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
