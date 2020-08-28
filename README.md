@@ -2,7 +2,7 @@
 
 Share recipes freely.
     
-This is a platform to share recipes online where the users are in control of what they share.
-    
+Egghat is a recipe sharing platform where *you* are in control.
+
 This server will implement activity pub and will be an optional api to [Egg Hat](https://gitlab.com/kdeleteme/egghat)
     
