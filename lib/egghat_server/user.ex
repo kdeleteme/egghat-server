@@ -7,7 +7,6 @@ defmodule EgghatServer.User do
   schema "users" do
     field :display_name, :string
     field :email, :string
-    field :id, :string
     field :username, :string
 
     timestamps()
