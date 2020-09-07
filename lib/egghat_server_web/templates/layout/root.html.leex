@@ -5,23 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "EgghatServer", suffix: " · Phoenix Framework" %>
-    <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <%= live_title_tag assigns[:page_title] ||
+        "Egghat", suffix: " · Phoenix Framework" %>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/roboto"
+          type="text/css"/> 
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+          integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY="
+          crossorigin="anonymous">
+    <link phx-track-static rel="stylesheet"
+          href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer phx-track-static type="text/javascript"
+            src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
+    <header class="header">
+      <div class="header__container">
+      <section class="header__container__brand">
+        <img src="<%= Routes.static_path(@conn, "/images/logo.svg") %>"
+             height="48"
+             class="header__container__brand__logo"/>
+        <p class="header__container__brand__name">Egghat</p>
+      </section>
+
+      <section class="header__container__search">
+        <input class="header__container__search__box" type="text"
+               placeholder="Find a recipe..." />
+        <a class="button button-default" aria-label="Search">
+        <i class="header__container__search__button fa fa-search"
+           aria-hidden="true"></i>
         </a>
       </section>
     </header>
