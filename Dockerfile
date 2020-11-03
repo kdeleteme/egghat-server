@@ -5,7 +5,7 @@ ENV APP_DIR /egghat_server
 
 RUN apt update -y && apt upgrade -y && \
     apt install curl -y && \
-    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt install gcc g++ make nodejs inotify-tools postgresql-client -y
 
 RUN mkdir $APP_DIR
