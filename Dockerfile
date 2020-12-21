@@ -1,12 +1,17 @@
 from elixir:slim
 
-ENV LANG en_US.UTF-8
 ENV APP_DIR /egghat_server
 
 RUN apt update -y && apt upgrade -y && \
     apt install curl -y && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt install gcc g++ make nodejs inotify-tools postgresql-client -y
+    apt install gcc g++ make nodejs inotify-tools postgresql-client locales -y
+
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
+
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN mkdir $APP_DIR
 
